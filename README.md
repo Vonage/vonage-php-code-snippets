@@ -17,7 +17,7 @@ For some of the examples you will need to [buy a number](https://dashboard.nexmo
 
 ## Request More Examples
 
-Please [raise and issue](issues) to request an example that isn't present within the quickstart. Pull requests will be gratefully received.
+Please [raise an issue](/../../issues/) to request an example that isn't present within the quickstart. Pull requests will be gratefully received.
 
 ## Licenses
 
