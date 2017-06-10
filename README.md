@@ -27,6 +27,7 @@ For some of the examples you will need to [buy a number](https://dashboard.nexmo
 | [Receive a Phone Call](voice/text-to-speech-inbound.php) |
 | [Play Text-to-Speech](voice/text-to-speech-inbound.php) |
 | [Connect a Call](voice/connect-a-call.php)   |
+| [Join a Conference Call](voice/conference-call.php)   |
 
 ### Verify
 
