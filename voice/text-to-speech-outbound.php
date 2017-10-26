@@ -6,7 +6,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 // 1. Make a Phone Call
 // 2. Play Text-to-Speech
 
-$keypair = new \Nexmo\Client\Credentials\Keypair(file_get_contents(NEXMO_APPLICATION_PRIVATE_KEY), NEXMO_APPLICATION_ID);
+$keypair = new \Nexmo\Client\Credentials\Keypair(file_get_contents(NEXMO_APPLICATION_PRIVATE_KEY_PATH), NEXMO_APPLICATION_ID);
 $client = new \Nexmo\Client($keypair);
 
 $call = $client->calls()->create([
