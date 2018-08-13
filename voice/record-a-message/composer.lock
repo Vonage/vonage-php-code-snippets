@@ -1,11 +1,59 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4780cd09dd39e466a7e82975bae3ac5d",
+    "content-hash": "fdf33e37489adc30aa6fef89019412b9",
     "packages": [
+        {
+            "name": "akrabat/rka-scheme-and-host-detection-middleware",
+            "version": "0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/akrabat/rka-scheme-and-host-detection-middleware.git",
+                "reference": "5b5e9668d3291ffeafe487ffc00b5344b945a369"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/akrabat/rka-scheme-and-host-detection-middleware/zipball/5b5e9668d3291ffeafe487ffc00b5344b945a369",
+                "reference": "5b5e9668d3291ffeafe487ffc00b5344b945a369",
+                "shasum": ""
+            },
+            "require": {
+                "psr/http-message": "^1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8",
+                "squizlabs/php_codesniffer": "^2.3",
+                "zendframework/zend-diactoros": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "RKA\\Middleware\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Rob Allen",
+                    "email": "rob@akrabat.com",
+                    "homepage": "http://akrabat.com"
+                }
+            ],
+            "description": "PSR-7 Middleware that determines the scheme, host and port from the 'X-Forwarded-Proto', 'X-Forwarded-Host' and 'X-Forwarded-Port' headers and updates the Request's Uri object.",
+            "homepage": "http://github.com/akrabat/rka-scheme-and-host-detection-middleware",
+            "keywords": [
+                "IP",
+                "middleware",
+                "psr7"
+            ],
+            "time": "2016-11-13T11:55:26+00:00"
+        },
         {
             "name": "container-interop/container-interop",
             "version": "1.2.0",

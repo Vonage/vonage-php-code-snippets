@@ -6,8 +6,14 @@ require 'vendor/autoload.php';
 
 $app = new \Slim\App;
 
+$app->add(new RKA\Middleware\SchemeAndHost());
+
 $app->get('/webhooks/answer', function (Request $request, Response $response) {
     $uri = $request->getUri();
+    $event_url = $uri->getScheme().'://'.$uri->getHost().'/webhooks/recording';
+    if($uri->getPort()) {
+        $event_url = $uri->getScheme().'://'.$uri->getHost().':'.$uri->getPort().'/webhooks/recording';
+    }
     $ncco = [
         [
             'action' => 'talk',
@@ -17,7 +23,7 @@ $app->get('/webhooks/answer', function (Request $request, Response $response) {
         [
             'action' => 'record',
             'eventUrl' => [
-                $uri->getScheme().'://'.$uri->getHost().':'.$uri->getPort().'/webhooks/recording'
+                $event_url
             ],
             'endOnSilence' => '3',
             'endOnKey' => '#',
