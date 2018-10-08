@@ -54,6 +54,6 @@ Please [raise an issue](/../../issues/) to request an example that isn't present
 
 ## Licenses
 
-- The code samples in this repo is under [MIT](LICENSE)
+- The sample code in this repo is licensed under [MIT](LICENSE)
 
   ​
