@@ -35,10 +35,9 @@ For some of the examples you will need to [buy a number](https://dashboard.nexmo
 
 | Code Sample                              |
 | ---------------------------------------- |
-| Send Phone Verification Code | [verify/request.php] |
-| Check Phone Verification Code | [verify/verify.php] |
-| Cancel Phone Verification | [verify/cancel.php] |
-
+| [Send Phone Verification Code](verify/request.php) |
+| [Check Phone Verification Code](verify/verify.php) |
+| [Cancel Phone Verification](verify/cancel.php) |
 
 
 ## Request More Examples
