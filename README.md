@@ -39,6 +39,14 @@ For some of the examples you will need to [buy a number](https://dashboard.nexmo
 | [Check Phone Verification Code](verify/verify.php) |
 | [Cancel Phone Verification](verify/cancel.php) |
 
+### Secret Management
+
+| Code Sample                              |
+| ---------------------------------------- |
+| [List Secrets](secret-management/fetch-secrets.php) |
+| [Get a Secret](secret-management/get-a-secret.php) |
+| [Create a Secret](secret-management/create-a-secret.php) |
+| [Delete a Secret](secret-management/delete-a-secret.php) |
 
 ## Request More Examples
 
