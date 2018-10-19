@@ -11,4 +11,4 @@ You also need to [buy a number](https://dashboard.nexmo.com/buy-numbers) where y
 
 To run Voice APIs, you need to set up your secure Nexmo Application first. You can use [Nexmo CLI tool](https://github.com/Nexmo/nexmo-cli) to create and manage your Nexmo Applications.
 
-For more information, read the tutorials.
+For more information, read the [tutorials](https://developer.nexmo.com/voice/voice-api/tutorials).
