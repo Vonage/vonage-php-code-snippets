@@ -2,14 +2,14 @@
 
 The purpose of the quickstart guide is to provide simple PHP examples focused on one goal. For example, sending an SMS, receiving an SMS via an incoming SMS webhook or making a Text to Speech call.
 
-Quickstarts also available for: [Java](https://github.com/nexmo-community/nexmo-java-quickstart), [.NET](https://github.com/nexmo-community/nexmo-dotnet-quickstart), [Node.js](https://github.com/nexmo-community/nexmo-node-quickstart), [Python](https://github.com/nexmo-community/nexmo-python-quickstart), [Ruby](https://github.com/nexmo-community/nexmo-ruby-quickstart)
+Quickstarts also available for [Java](https://github.com/nexmo-community/nexmo-java-quickstart), [.NET](https://github.com/nexmo-community/nexmo-dotnet-quickstart), [Node.js](https://github.com/nexmo-community/nexmo-node-quickstart), [Python](https://github.com/nexmo-community/nexmo-python-quickstart), [Ruby](https://github.com/nexmo-community/nexmo-ruby-quickstart)
 
 ## Configure with Your Nexmo API Keys
 
 To use this sample you will first need a [Nexmo account](https://dashboard.nexmo.com/sign-up). Once you have your own API credentials, rename
 the `.env-example` file to `.env` and set the values as required.
 
-For some of the examples you will need to [buy a number](https://dashboard.nexmo.com/buy-numbers).
+For some of the examples, you will need to [buy a number](https://dashboard.nexmo.com/buy-numbers).
 
 ## Examples
 
