@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aa5ff7531d3c0b300f10c79201ae3e62",
+    "content-hash": "6ab4fc519bbba621147e5fa5541b6cbd",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -235,7 +235,7 @@
                 {
                     "name": "Luís Otávio Cobucci Oblonczyk",
                     "email": "lcobucci@gmail.com",
-                    "role": "Developer"
+                    "role": "developer"
                 }
             ],
             "description": "A simple library to work with JSON Web Token and JSON Web Signature",
@@ -247,16 +247,16 @@
         },
         {
             "name": "nexmo/client",
-            "version": "1.5.0",
+            "version": "1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Nexmo/nexmo-php.git",
-                "reference": "4a6ecf73f7ee79b861600cb84e8a44c8a3b3ef15"
+                "reference": "01809cc1e17a5af275913c49bb5d444eb6cc06d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Nexmo/nexmo-php/zipball/4a6ecf73f7ee79b861600cb84e8a44c8a3b3ef15",
-                "reference": "4a6ecf73f7ee79b861600cb84e8a44c8a3b3ef15",
+                "url": "https://api.github.com/repos/Nexmo/nexmo-php/zipball/01809cc1e17a5af275913c49bb5d444eb6cc06d4",
+                "reference": "01809cc1e17a5af275913c49bb5d444eb6cc06d4",
                 "shasum": ""
             },
             "require": {
@@ -267,7 +267,7 @@
                 "zendframework/zend-diactoros": "^1.3"
             },
             "require-dev": {
-                "estahn/phpunit-json-assertions": "@stable",
+                "estahn/phpunit-json-assertions": "^1.0.0",
                 "php-http/mock-client": "^0.3.0",
                 "phpunit/phpunit": "^5.7",
                 "squizlabs/php_codesniffer": "^3.1"
@@ -291,7 +291,7 @@
                 }
             ],
             "description": "PHP Client for using Nexmo's API.",
-            "time": "2018-09-20T14:13:04+00:00"
+            "time": "2018-12-17T10:47:50+00:00"
         },
         {
             "name": "php-http/guzzle6-adapter",
