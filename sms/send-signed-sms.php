@@ -2,8 +2,11 @@
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../vendor/autoload.php';
 
-// add a 3rd parameter to change the signature from md5hash to something else
-$signed = new Nexmo\Client\Credentials\SignatureSecret(NEXMO_API_KEY, NEXMO_API_SIGNATURE_SECRET);
+$signed = new Nexmo\Client\Credentials\SignatureSecret(
+    NEXMO_API_KEY,
+    NEXMO_API_SIGNATURE_SECRET,
+    'md5hash'
+);
 $client = new \Nexmo\Client($signed);
 
 $message = $client->message()->send([
