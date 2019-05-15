@@ -15,6 +15,7 @@ try {
         "moHttpUrl" => SMS_CALLBACK_URL,
     ], NEXMO_NUMBER);
     echo "Number updated";
+    
 } catch (Exception $e) {
     echo "Error updating number";
 }
