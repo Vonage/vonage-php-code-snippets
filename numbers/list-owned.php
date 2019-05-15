@@ -12,4 +12,8 @@ $response = $client->numbers()->searchOwned(
     ]
 );
 
-print_r($response);
+echo count($response). " of your numbers match:\n";
+
+foreach($response as $number) {
+  echo "Tel: " . $number->getMsisdn() . " Type: " . $number->getType() . "\n";
+} 

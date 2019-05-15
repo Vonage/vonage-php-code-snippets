@@ -15,4 +15,8 @@ $response = $client->numbers()->searchAvailable(
     ]
 );
 
-print_r($response);
+echo "There are " . count($response) . " matching numbers available for purchase:\n";
+
+foreach ($response as $number) {
+    echo "Tel: " . $number->getMsisdn() . " Cost: " . $number->getCost() . "\n";
+}
