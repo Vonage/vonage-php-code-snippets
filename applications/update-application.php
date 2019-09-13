@@ -6,11 +6,8 @@ require_once __DIR__ . '/../vendor/autoload.php';
 $basic  = new \Nexmo\Client\Credentials\Basic(NEXMO_API_KEY, NEXMO_API_SECRET);
 $client = new \Nexmo\Client(new \Nexmo\Client\Credentials\Container($basic));
 
-$applicationClient = new \Nexmo\Application\Client();
-$applicationClient->setClient($client);
-
 try {
-    $application = $applicationClient->update([
+    $application = $client->applications()->update([
             'name' => 'Sample PHP V2 Application',
             'capabilities' => [
                 'voice' => [
@@ -50,8 +47,8 @@ try {
         MESSAGES_APPLICATION_ID
     );
 
-    error_log($application->getId());
-    error_log($application->getName());
+    echo $application->getId() . PHP_EOL;
+    echo $application->getName() . PHP_EOL;
 } catch (\InvalidArgumentException $e) {
-    error_log($e->getMessage());
+    echo $e->getMessage() . PHP_EOL;
 }
