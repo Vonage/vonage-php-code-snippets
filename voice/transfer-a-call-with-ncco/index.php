@@ -11,10 +11,10 @@ if (count($argv) != 2) {
     exit(1);
 }
 
-$uuid = $argv[1];
+define('UUID', $argv[1]);
 
 try {
-    $client->calls[$uuid]->put([
+    $client->calls[UUID]->put([
         'action' => 'transfer',
         'destination' => [
             'type' => 'ncco',
