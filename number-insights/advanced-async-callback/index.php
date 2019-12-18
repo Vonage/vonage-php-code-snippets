@@ -16,5 +16,5 @@ $handler = function (Request $request, Response $response) {
     return $response->withStatus(204);
 };
 
-$app->post('/webhook/insights', $handler);
+$app->post('/webhooks/insight', $handler);
 $app->run();
