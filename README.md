@@ -2,7 +2,21 @@
 
 The purpose of the quickstart guide is to provide simple PHP examples focused on one goal. For example, sending an SMS, receiving an SMS via an incoming SMS webhook or making a Text to Speech call.
 
-Quickstarts also available for [Java](https://github.com/nexmo-community/nexmo-java-quickstart), [.NET](https://github.com/nexmo-community/nexmo-dotnet-quickstart), [Node.js](https://github.com/nexmo-community/nexmo-node-quickstart), [Python](https://github.com/nexmo-community/nexmo-python-quickstart), [Ruby](https://github.com/nexmo-community/nexmo-ruby-quickstart)
+Quickstarts also available for [Java](https://github.com/nexmo/nexmo-java-code-snippets), [.NET](https://github.com/nexmo/nexmo-dotnet-code-snippets), [Node.js](https://github.com/nexmo/nexmo-node-code-snippets), [Python](https://github.com/nexmo/nexmo-python-code-snippets), and [Ruby](https://github.com/nexmo/nexmo-ruby-code-snippets)
+
+## Setup
+
+These code samples are meant to be used for [https://developer.nexmo.com/](https://developer.nexmo.com/), and are structured in such a way as to be used for internal testing. Developers are free to use these code snippets as a reference, but these may require changes to be worked into your specific application. We recommend checking out the [Nexmo Developer Website](https://developer.nexmo.com/), which displays these code snippets in a more copy/paste fashion.
+
+If you would like to run these examples yourself, you will need to do the following:
+
+1. Run `composer install` in the root of the repository
+2. Copy `.env-example` to `.env`
+3. Edit `.env` with your Nexmo credentials
+
+From there, you can fill out the various environment variables as detailed by the individual code snippet. Some snippets may share common environment variables. 
+
+Larger or more complex snippets may include their own `composer.json` file and have additional requirements. Please check any READMEs inside of the larger examples for setup instructions.
 
 ## Configure with Your Nexmo API Keys
 
@@ -11,46 +25,9 @@ the `.env-example` file to `.env` and set the values as required.
 
 For some of the examples, you will need to [buy a number](https://dashboard.nexmo.com/buy-numbers).
 
-## Examples
-
-### SMS
-
-| Code Sample                              |
-| ---------------------------------------- |
-| [Send an SMS](sms/send-sms.php)   |
-| [Receive an SMS](sms/receive-sms.php) |
-| [Receive a Delivery Receipt](sms/receive-delivery-receipt.php)     |
-
-### Voice
-
-| Code Sample                              |
-| ---------------------------------------- |
-| [Make a Phone Call](voice/text-to-speech-outbound.php)      |
-| [Receive a Phone Call](voice/text-to-speech-inbound.php) |
-| [Play Text-to-Speech](voice/text-to-speech-inbound.php) |
-| [Connect a Call](voice/connect-a-call.php)   |
-| [Join a Conference Call](voice/conference-call.php)   |
-
-### Verify
-
-| Code Sample                              |
-| ---------------------------------------- |
-| [Send Phone Verification Code](verify/request.php) |
-| [Check Phone Verification Code](verify/verify.php) |
-| [Cancel Phone Verification](verify/cancel.php) |
-
-### Secret Management
-
-| Code Sample                              |
-| ---------------------------------------- |
-| [List Secrets](secret-management/fetch-secrets.php) |
-| [Get a Secret](secret-management/get-a-secret.php) |
-| [Create a Secret](secret-management/create-a-secret.php) |
-| [Delete a Secret](secret-management/delete-a-secret.php) |
-
 ## Request More Examples
 
-Please [raise an issue](/../../issues/) to request an example that isn't present within the quickstart. Pull requests will be gratefully received.
+Please [raise an issue](/../../issues/) to request an example that isn't present within the code snippets. Pull requests will be gratefully received.
 
 ## Licenses
 
