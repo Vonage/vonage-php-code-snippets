@@ -1,5 +1,7 @@
 # Nexmo APIs Quickstart Examples for PHP
 
+<img src="https://developer.nexmo.com/assets/images/Vonage_Nexmo.svg" height="48px" alt="Nexmo is now known as Vonage" />
+
 The purpose of the quickstart guide is to provide simple PHP examples focused on one goal. For example, sending an SMS, receiving an SMS via an incoming SMS webhook or making a Text to Speech call.
 
 Quickstarts also available for [Java](https://github.com/nexmo/nexmo-java-code-snippets), [.NET](https://github.com/nexmo/nexmo-dotnet-code-snippets), [Node.js](https://github.com/nexmo/nexmo-node-code-snippets), [Python](https://github.com/nexmo/nexmo-python-code-snippets), and [Ruby](https://github.com/nexmo/nexmo-ruby-code-snippets)
