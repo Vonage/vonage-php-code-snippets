@@ -12,7 +12,7 @@ $app->get('/webhook/answer', function (Request $request, Response $response) {
     $client = new GuzzleHttp\Client();
     $apiResponse = json_decode($client->get('http://api.icndb.com/jokes/random?limitTo=[nerdy]')->getBody());
 
-    $data = [
+    $ncco = [
         [
             'action' => 'talk',
             'voiceName' => 'Amy',
@@ -20,8 +20,7 @@ $app->get('/webhook/answer', function (Request $request, Response $response) {
         ]
     ];
 
-    $payload = json_encode($data);
-    $response->getBody()->write($payload);
+    $response->getBody()->write(json_encode($ncco));
 
     return $response
             ->withHeader('Content-Type', 'application/json');
@@ -44,7 +43,7 @@ $app->get('/makeCall/{number}', function (Request $request, Response $response, 
             'type' => 'phone',
             'number' => 'YOUR_VONAGE_NUMBER'
         ],
-        'answer_url' => ['https://afb8ad306a73.ngrok.io/webhook/answer']
+        'answer_url' => ['https://www.example.com/webhook/answer']
     ]);
 
     return $response
