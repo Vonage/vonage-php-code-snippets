@@ -8,4 +8,4 @@ $client = new \Nexmo\Client($basic);
 $response = $client->account()->updateConfig([
     "sms_callback_url" => SMS_CALLBACK_URL
 ]);
-print_r($response->data);
+print_r($response->toArray());

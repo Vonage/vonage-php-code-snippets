@@ -7,7 +7,7 @@ $client = new \Nexmo\Client($basic);
 
 try {
     $secret = $client->account()->getSecret(NEXMO_API_KEY, NEXMO_SECRET_ID);
-    echo "ID: " . $secret['id'] . " (created " . $secret['created_at'] .")\n";
+    echo "ID: " . $secret->getId() . " (created " . $secret->getCreatedAt() .")\n";
 } catch (\Nexmo\Client\Exception\Request $e) {
     echo $e->getMessage();
 }
