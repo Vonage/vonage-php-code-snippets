@@ -1,9 +1,12 @@
 <?php
-$auth = base64_encode(getenv('NEXMO_API_KEY') . ":" . getenv('NEXMO_API_SECRET'));
+require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$auth = base64_encode(NEXMO_API_KEY . ":" . NEXMO_API_SECRET);
 
 $url = "https://api.nexmo.com/v2/reports";
 $data = ["product" => "SMS",
-    "account_id" => getenv('ACCOUNT_ID'),
+    "account_id" => ACCOUNT_ID,
     "direction" => "outbound"
 ];
 $body = json_encode($data);
