@@ -14,5 +14,3 @@ $context = stream_context_create($options);
 // make the request
 $response = file_get_contents($url, false, $context);
 var_dump($response);
-
-echo(REQUEST_ID);
