@@ -46,7 +46,7 @@ if (is_null(NUMBER)) {
     exit(1);
 }
 
-$verification = new \Nexmo\Verify\Verification(NUMBER, BRAND_NAME, ['workflow_id' => WORKFLOW_ID]);
-$client->verify()->start($verification);
+$request = new \Nexmo\Verify\Request(NUMBER, BRAND_NAME, (int) WORKFLOW_ID);
+$response = $client->verify()->start($request);
 
-echo "Started verification, `request_id` is " . $verification->getRequestId();
+echo "Started verification, `request_id` is " . $response->getRequestId();
