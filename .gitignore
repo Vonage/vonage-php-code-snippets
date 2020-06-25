@@ -2,3 +2,6 @@ vendor
 private.key
 .env
 .DS_Store
+composer.phar
+report.zip
+composer-setup.php
