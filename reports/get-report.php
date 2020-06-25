@@ -2,9 +2,6 @@
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../vendor/autoload.php';
 
-echo(FILE_ID . "\n\n");
-echo("-------------------------------");
-
 $auth = base64_encode(NEXMO_API_KEY . ":" . NEXMO_API_SECRET);
 
 $url = 'https://api.nexmo.com/v3/media/' . FILE_ID;
