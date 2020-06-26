@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -6,19 +7,12 @@ require_once __DIR__ . '/../vendor/autoload.php';
 $from = $_GET['from'];
 $to = $_GET['to'];
 
-// Create the `connect` NCCO
-$ncco = [
-    [
-        'action' => 'connect',
-        'from' => $from,
-        'endpoint' => [
-          [
-            'type' => 'phone',
-            'number' => NEXMO_TO_NUMBER
-          ]
-        ]
-    ]
-];
+$ncco = new \Nexmo\Voice\NCCO\NCCO();
+$ncco->addAction(
+    new \Nexmo\Voice\NCCO\Action\Connect(
+      new \Nexmo\Voice\Endpoint\Phone(NEXMO_TO_NUMBER)
+    )
+);
 
 header('Content-Type: application/json');
 $json = json_encode($ncco);

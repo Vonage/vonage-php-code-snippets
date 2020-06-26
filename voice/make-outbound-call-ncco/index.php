@@ -1,4 +1,7 @@
 <?php
+
+use Nexmo\Voice\NCCO\NCCO;
+
 require_once __DIR__ . '/../../config.php';
 require_once __DIR__ . '/../../vendor/autoload.php';
 
@@ -8,21 +11,14 @@ $keypair = new \Nexmo\Client\Credentials\Keypair(
 );
 $client = new \Nexmo\Client($keypair);
 
-$call = $client->calls()->create([
-    'to' => [[
-        'type' => 'phone',
-        'number' => TO_NUMBER
-    ]],
-    'from' => [
-        'type' => 'phone',
-        'number' => NEXMO_NUMBER
-    ],
-    'ncco' => [
-        [
-            'action' => 'talk',
-            'text' => 'This is a text to speech call from Nexmo'
-        ]
-    ]
-]);
+$outboundCall = new \Nexmo\Voice\OutboundCall(
+    new \Nexmo\Voice\Endpoint\Phone(TO_NUMBER),
+    new \Nexmo\Voice\Endpoint\Phone(NEXMO_NUMBER)
+);
+$ncco = new NCCO();
+$ncco->addAction(new \Nexmo\Voice\NCCO\Action\Talk('This is a text to speech call from Nexmo'));
+$outboundCall->setNCCO($ncco);
 
-print_r($call);
+$response = $client->voice()->createOutboundCall($outboundCall);
+
+var_dump($response);

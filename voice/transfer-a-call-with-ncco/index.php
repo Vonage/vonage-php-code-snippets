@@ -1,5 +1,9 @@
 <?php
 
+use Nexmo\Voice\NCCO\Action\Talk;
+use Nexmo\Voice\NCCO\Action\Transfer;
+use Nexmo\Voice\NCCO\NCCO;
+
 require_once __DIR__ . '/../../config.php';
 require_once __DIR__ . '/../../vendor/autoload.php';
 
@@ -14,16 +18,14 @@ if (count($argv) != 2) {
 define('UUID', $argv[1]);
 
 try {
-    $client->calls[UUID]->put([
-        'action' => 'transfer',
-        'destination' => [
-            'type' => 'ncco',
-            'ncco' => [[
-                'action' => 'talk',
-                'text' => 'This call was transferred'
-            ]],
-        ]
-    ]);
+    $call = $client->voice()->get(UUID);
+    $ncco = new \Nexmo\Voice\NCCO\NCCO();
+    $ncco->addAction(new \Nexmo\Voice\NCCO\Action\Talk('This call was transferred'));
+
+    $client->voice()->transferCall(
+        $call->getUuid(),
+        new \Nexmo\Voice\NCCO\Action\Transfer($ncco)
+    );
 } catch (\Nexmo\Client\Exception\Request $e) {
     error_log("Client error: " . $e->getMessage());
     exit(1);
