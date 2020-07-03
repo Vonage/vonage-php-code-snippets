@@ -1,6 +1,7 @@
 {
+    "minimum-stability": "RC",
     "require": {
-        "nexmo/client": "^1.6",
+        "nexmo/client": "v2.2.0-RC1",
         "vlucas/phpdotenv": "^2.5"
     }
 }

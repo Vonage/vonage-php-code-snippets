@@ -6,12 +6,10 @@ require_once __DIR__ . '/../vendor/autoload.php';
 $basic  = new \Nexmo\Client\Credentials\Basic(NEXMO_API_KEY, NEXMO_API_SECRET);
 $client = new \Nexmo\Client(new \Nexmo\Client\Credentials\Container($basic));
 
-$inbound = \Nexmo\Message\InboundMessage::createFromGlobals();
+/** @var \Nexmo\SMS\Webhook\InboundSMS */
+$inbound = \Nexmo\SMS\Webhook\Factory::createFromGlobals();
 
-if($inbound->isValid()){
-    error_log($inbound->getBody());
-
-    $client->message()->send($inbound->createReply('Thanks for the SMS!'));
-} else {
-    error_log('invalid message');
-}
+error_log($inbound->getText());
+$client->sms()->send(
+    new \Nexmo\SMS\Message\SMS($inbound->getFrom(), $inbound->getTo(), 'Thanks for sending a message!' )
+);
