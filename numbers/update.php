@@ -7,8 +7,7 @@ $client = new \Nexmo\Client($basic);
 
 try {
     $client->numbers()->update([
-        "messagesCallbackType" => "app",
-        "messagesCallbackValue" => MESSAGES_APPLICATION_ID,
+        "app_id" => NEXMO_APPLICATION_ID,
         "voiceCallbackType" => VOICE_CALLBACK_TYPE,
         "voiceCallbackValue" => VOICE_CALLBACK_VALUE,
         "voiceStatusCallback" => VOICE_STATUS_URL,
