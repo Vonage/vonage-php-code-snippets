@@ -8,7 +8,7 @@ $client = new \Nexmo\Client($basic);
 
 try {
     $number = $client->numbers()->get(NEXMO_NUMBER);
-    $number->setAppId(MESSAGES_APPLICATION_ID);
+    $number->setAppId(NEXMO_APPLICATION_ID);
     $client->numbers()->update($number);
     echo "Number updated" . PHP_EOL;
     
