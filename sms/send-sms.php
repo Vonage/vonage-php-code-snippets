@@ -1,8 +1,5 @@
 <?php
 
-use Zend\Diactoros\Response\Serializer;
-use Zend\Diactoros\Request\Serializer as asdf;
-
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -15,7 +12,7 @@ $response = $client->sms()->send(
 
 $message = $response->current();
 
-if($message->getStatus() == 0) {
+if ($message->getStatus() == 0) {
     echo "The message was sent successfully\n";
 } else {
     echo "The message failed with status: " . $message->getStatus() . "\n";
