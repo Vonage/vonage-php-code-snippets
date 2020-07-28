@@ -1,3 +1,4 @@
 vendor
 private.key
 .env
+composer.lock
