@@ -1,41 +1,43 @@
 <?php
-use \Psr\Http\Message\ServerRequestInterface as Request;
+use Dotenv\Dotenv;
+use Laminas\Diactoros\Response\JsonResponse;
 use \Psr\Http\Message\ResponseInterface as Response;
+use \Psr\Http\Message\ServerRequestInterface as Request;
 
 require 'vendor/autoload.php';
 
-$app = new \Slim\App;
+$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+define('TO_NUMBER', getenv('TO_NUMBER'));
+define('NEXMO_NUMBER', getenv('NEXMO_NUMBER'));
+
+$app = new \Slim\App();
 
 $app->get('/webhooks/answer', function (Request $request, Response $response) {
+    //Get our public URL for this route
     $uri = $request->getUri();
-    $ncco = [
-        [
-            'action' => 'record',
-            'split' => 'conversation',
-            'channels' => 2,
-            'eventUrl' => [
-                $uri->getScheme().'://'.$uri->getHost().':'.$uri->getPort().'/webhooks/recording'
-            ]
-        ],
-        [
-            'action' => 'connect',
-            'from' => NEXMO_NUMBER,
-            'endpoint' => [
-                [
-                    'type' => 'phone',
-                    'number' => TO_NUMBER
-                ]
-            ]
-        ],
+    $url = $uri->getScheme() . '://'.$uri->getHost() . ($uri->getPort() ? ':'.$uri->getPort() : '') . '/webhooks/recording';
 
-    ];
+    $record = new \Nexmo\Voice\NCCO\Action\Record();
+    $record->setEventWebhook(new \Nexmo\Voice\Webhook($url));
+    $record->setChannels(2);
 
-    return $response->withJson($ncco);
+    $connect = new \Nexmo\Voice\NCCO\Action\Connect(new \Nexmo\Voice\Endpoint\Phone(TO_NUMBER));
+    $connect->setFrom(NEXMO_NUMBER);
+
+    $ncco = new \Nexmo\Voice\NCCO\NCCO();
+    $ncco->addAction($connect);
+    $ncco->addAction($record);
+
+    return new JsonResponse($ncco);
 });
 
 $app->post('/webhooks/recording', function (Request $request, Response $response) {
-    $params = $request->getParsedBody();
-    error_log($params['recording_url']);
+    /** @var \Nexmo\Voice\Webhook\Record */
+    $recording = \Nexmo\Voice\Webhook\Factory::createFromRequest($request);
+    error_log($recording->getRecordingUrl());
+
     return $response->withStatus(204);
 });
 

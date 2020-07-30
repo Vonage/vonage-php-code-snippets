@@ -1,4 +1,5 @@
 vendor
 private.key
 .env
+composer.lock
 .DS_Store

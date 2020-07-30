@@ -1,4 +1,5 @@
 <?php
+
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -9,11 +10,8 @@ $signed = new Nexmo\Client\Credentials\SignatureSecret(
 );
 $client = new \Nexmo\Client($signed);
 
-$message = $client->message()->send([
-    'to' => TO_NUMBER,
-    'from' => FROM_NUMBER,
-    'text' => 'Super interesting message',
-]);
+$response = $client->sms()->send(
+    new \Nexmo\SMS\Message\SMS(TO_NUMBER, FROM_NUMBER, 'Super interesting message')
+);
 
-$response = $message->getResponseData();
-echo "Message status: " . $response['messages'][0]['status'] . "\n";
+echo "Message status: " . $response->current()->getStatus() . "\n";

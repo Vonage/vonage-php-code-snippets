@@ -7,19 +7,13 @@ require 'vendor/autoload.php';
 $app = new \Slim\App;
 
 $handler = function (Request $request, Response $response) {
-    $params = $request->getParsedBody();
+    $sms = \Nexmo\SMS\Webhook\Factory::createFromRequest($request);
 
-    // Fall back to query parameters if needed
-    if (!count($params)){
-        $params = $request->getQueryParams();
-    }
-
-    error_log(print_r($params, true));
+    error_log(print_r($sms, true));
 
     return $response->withStatus(204);
 };
 
-$app->get('/webhooks/inbound-sms', $handler);
-$app->post('/webhooks/inbound-sms', $handler);
+$app->map(['GET', 'POST'], '/webhooks/inbound-sms', $handler);
 
 $app->run();

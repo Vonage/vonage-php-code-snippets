@@ -10,13 +10,10 @@ require_once __DIR__ . '/../vendor/autoload.php';
 $from = $_GET['from'];
 $to = $_GET['to'];
 
-$ncco = [
-    [
-        'action' => 'talk',
-        'voiceName' => 'Jennifer',
-        'text' => "This is a call from $from and to $to. Thank you for calling."
-    ]
-];
+$ncco = new \Nexmo\Voice\NCCO\NCCO();
+$ncco->addAction(
+    new \Nexmo\Voice\NCCO\Action\Talk("This is a call from $from and to $to. Thank you for calling.")
+);
 
 header('Content-Type: application/json');
 $json = json_encode($ncco);
