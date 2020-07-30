@@ -1,7 +1,7 @@
 ### Usage
 
 * Run `composer install`
-* Start the web server `php -t . -S 127.0.0.1:3000`
+* Start the web server `composer run --timeout=0 serve`
 * Test your code with the following `curl` requests:
     - `GET` + Query
         ```sh
