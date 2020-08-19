@@ -9,13 +9,13 @@ require 'vendor/autoload.php';
 $app = new \Slim\App();
 
 $app->get('/webhooks/answer', function (Request $request, Response $response) {
-    /** @var \Nexmo\Voice\Webhook\Answer $call */
-    $call = \Nexmo\Voice\Webhook\Factory::createFromRequest($request);
+    /** @var \Vonage\Voice\Webhook\Answer $call */
+    $call = \Vonage\Voice\Webhook\Factory::createFromRequest($request);
     $fromSplitIntoCharacters = implode(" ", str_split($call->getFrom()));
 
-    $ncco = new \Nexmo\Voice\NCCO\NCCO();
+    $ncco = new \Vonage\Voice\NCCO\NCCO();
     $ncco->addAction(
-        new \Nexmo\Voice\NCCO\Action\Talk('Thank you for calling from ' . $fromSplitIntoCharacters)
+        new \Vonage\Voice\NCCO\Action\Talk('Thank you for calling from ' . $fromSplitIntoCharacters)
     );
 
     return new JsonResponse($ncco);

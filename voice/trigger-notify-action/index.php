@@ -13,19 +13,19 @@ $app->get('/webhooks/answer', function (Request $request, Response $response) {
     $uri = $request->getUri();
     $url = $uri->getScheme() . '://'.$uri->getHost() . ($uri->getPort() ? ':'.$uri->getPort() : '') . '/webhooks/notification';
 
-    $notify = new \Nexmo\Voice\NCCO\Action\Notify(
+    $notify = new \Vonage\Voice\NCCO\Action\Notify(
         ['foo' => 'bar'],
-        new \Nexmo\Voice\Webhook($url, 'GET')
+        new \Vonage\Voice\Webhook($url, 'GET')
     );
 
-    $ncco = new \Nexmo\Voice\NCCO\NCCO();
+    $ncco = new \Vonage\Voice\NCCO\NCCO();
     $ncco
         ->addAction(
-            new \Nexmo\Voice\NCCO\Action\Talk('Thanks for calling the notification line')
+            new \Vonage\Voice\NCCO\Action\Talk('Thanks for calling the notification line')
         )
         ->addAction($notify)
         ->addAction(
-            new \Nexmo\Voice\NCCO\Action\Talk('You will never hear me as the notification URL will return an NCCO')
+            new \Vonage\Voice\NCCO\Action\Talk('You will never hear me as the notification URL will return an NCCO')
         )
     ;
 
@@ -33,21 +33,21 @@ $app->get('/webhooks/answer', function (Request $request, Response $response) {
 });
 
 $app->map(['GET', 'POST'], '/webhooks/notification', function (Request $request, Response $response) {
-    /** @var \Nexmo\Voice\Webhook\Event */
-    $event = \Nexmo\Voice\Webhook\Factory::createFromRequest($request);
+    /** @var \Vonage\Voice\Webhook\Event */
+    $event = \Vonage\Voice\Webhook\Factory::createFromRequest($request);
     error_log(print_r($event, true));
 
-    $ncco = new \Nexmo\Voice\NCCO\NCCO();
+    $ncco = new \Vonage\Voice\NCCO\NCCO();
     $ncco->addAction(
-        new \Nexmo\Voice\NCCO\Action\Talk('Your notification has been received, loud and clear')
+        new \Vonage\Voice\NCCO\Action\Talk('Your notification has been received, loud and clear')
     );
 
     return new JsonResponse($ncco);
 });
 
 $app->map(['GET', 'POST'], '/webhooks/event', function (Request $request, Response $response) {
-    /** @var \Nexmo\Voice\Webhook\Event */
-    $event = \Nexmo\Voice\Webhook\Factory::createFromRequest($request);
+    /** @var \Vonage\Voice\Webhook\Event */
+    $event = \Vonage\Voice\Webhook\Factory::createFromRequest($request);
     error_log(print_r($event, true));
 
     return $response->withStatus(204);

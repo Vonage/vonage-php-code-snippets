@@ -5,13 +5,13 @@ require_once __DIR__ . '/../vendor/autoload.php';
 // Instruct Nexmo to add this call to a conference
 // Start with an optional announcement using the `talk` action
 
-$ncco = new \Nexmo\Voice\NCCO\NCCO();
+$ncco = new \Vonage\Voice\NCCO\NCCO();
 $ncco
     ->addAction(
-        new \Nexmo\Voice\NCCO\Action\Talk('Welcome to the amazing Nexmo conference call')
+        new \Vonage\Voice\NCCO\Action\Talk('Welcome to the amazing Nexmo conference call')
     )
     ->addAction(
-        new \Nexmo\Voice\NCCO\Action\Conversation('amazing-conference-call')
+        new \Vonage\Voice\NCCO\Action\Conversation('amazing-conference-call')
     )
 ;
 

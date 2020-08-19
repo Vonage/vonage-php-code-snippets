@@ -1,19 +1,19 @@
 <?php
 
-use Nexmo\Numbers\Filter\AvailableNumbers;
-use Nexmo\Entity\IterableAPICollection;
+use Vonage\Numbers\Filter\AvailableNumbers;
+use Vonage\Entity\IterableAPICollection;
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$basic = new \Nexmo\Client\Credentials\Basic(NEXMO_API_KEY, NEXMO_API_SECRET);
-$client = new \Nexmo\Client($basic);
+$basic = new \Vonage\Client\Credentials\Basic(VONAGE_API_KEY, VONAGE_API_SECRET);
+$client = new \Vonage\Client($basic);
 
 /** @var IterableAPICollection $response */
 $filter = new AvailableNumbers([
     "pattern" => (int) NUMBER_SEARCH_CRITERIA,
     "search_pattern" => (int) NUMBER_SEARCH_PATTERN,
-    "type" => NEXMO_NUMBER_TYPE,
-    "features" => NEXMO_NUMBER_FEATURES,
+    "type" => VONAGE_NUMBER_TYPE,
+    "features" => VONAGE_NUMBER_FEATURES,
 ]);
 $response = $client->numbers()->searchAvailable(COUNTRY_CODE, $filter);
 

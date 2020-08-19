@@ -1,10 +1,10 @@
 <?php
 
-use Nexmo\Client;
+use Vonage\Client;
 use Dotenv\Dotenv;
 use Slim\Factory\AppFactory;
-use Nexmo\Client\Credentials\Basic;
-use Nexmo\SMS\Message\SMS;
+use Vonage\Client\Credentials\Basic;
+use Vonage\SMS\Message\SMS;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
@@ -25,8 +25,8 @@ $app->post('/sms/{number}', function (ServerRequestInterface $request, ResponseI
         return $response;
     }
 
-    $client = new Client(new Basic(getenv('NEXMO_API_KEY'), getenv('NEXMO_API_SECRET')));
-    $text = new SMS($args['number'], getenv('NEXMO_NUMBER'), $body['text']);
+    $client = new Client(new Basic(getenv('VONAGE_API_KEY'), getenv('VONAGE_API_SECRET')));
+    $text = new SMS($args['number'], getenv('VONAGE_NUMBER'), $body['text']);
     $client->sms()->send($text);
     $response->getBody()->write("Sending an SMS to " . $args['number']);
     return $response;

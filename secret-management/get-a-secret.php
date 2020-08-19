@@ -2,12 +2,12 @@
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$basic  = new \Nexmo\Client\Credentials\Basic(NEXMO_API_KEY, NEXMO_API_SECRET);
-$client = new \Nexmo\Client($basic);
+$basic  = new \Vonage\Client\Credentials\Basic(VONAGE_API_KEY, VONAGE_API_SECRET);
+$client = new \Vonage\Client($basic);
 
 try {
-    $secret = $client->account()->getSecret(NEXMO_API_KEY, NEXMO_SECRET_ID);
+    $secret = $client->account()->getSecret(VONAGE_API_KEY, VONAGE_SECRET_ID);
     echo "ID: " . $secret->getId() . " (created " . $secret->getCreatedAt() .")\n";
-} catch (\Nexmo\Client\Exception\Request $e) {
+} catch (\Vonage\Client\Exception\Request $e) {
     echo $e->getMessage();
 }
