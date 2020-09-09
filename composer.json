@@ -1,6 +1,6 @@
 {
     "require": {
-        "nexmo/client": "^2.0",
+        "vonage/client": "^2.3",
         "vlucas/phpdotenv": "^2.5"
     }
 }

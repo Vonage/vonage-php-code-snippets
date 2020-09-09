@@ -7,7 +7,7 @@ require 'vendor/autoload.php';
 $app = new \Slim\App;
 
 $handler = function (Request $request, Response $response) {
-    $receipt = \Nexmo\SMS\Webhook\Factory::createFromRequest($request);
+    $receipt = \Vonage\SMS\Webhook\Factory::createFromRequest($request);
 
     error_log(print_r($receipt, true));
 

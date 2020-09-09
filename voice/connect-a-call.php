@@ -7,10 +7,10 @@ require_once __DIR__ . '/../vendor/autoload.php';
 $from = $_GET['from'];
 $to = $_GET['to'];
 
-$ncco = new \Nexmo\Voice\NCCO\NCCO();
+$ncco = new \Vonage\Voice\NCCO\NCCO();
 $ncco->addAction(
-    new \Nexmo\Voice\NCCO\Action\Connect(
-      new \Nexmo\Voice\Endpoint\Phone(NEXMO_TO_NUMBER)
+    new \Vonage\Voice\NCCO\Action\Connect(
+      new \Vonage\Voice\Endpoint\Phone(VONAGE_TO_NUMBER)
     )
 );
 

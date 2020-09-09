@@ -13,8 +13,8 @@ if (!defined('CODE')) {
 
 error_log('Verifying code ' . CODE . ' is correct for request ' . REQUEST_ID);
 
-$basic  = new \Nexmo\Client\Credentials\Basic(NEXMO_API_KEY, NEXMO_API_SECRET);
-$client = new \Nexmo\Client(new \Nexmo\Client\Credentials\Container($basic));
+$basic  = new \Vonage\Client\Credentials\Basic(VONAGE_API_KEY, VONAGE_API_SECRET);
+$client = new \Vonage\Client(new \Vonage\Client\Credentials\Container($basic));
 
 $result = $client->verify()->check(REQUEST_ID, CODE);
 

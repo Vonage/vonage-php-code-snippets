@@ -10,7 +10,7 @@ $dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 define('TO_NUMBER', getenv('TO_NUMBER'));
-define('NEXMO_NUMBER', getenv('NEXMO_NUMBER'));
+define('VONAGE_NUMBER', getenv('VONAGE_NUMBER'));
 
 $app = new \Slim\App();
 
@@ -19,14 +19,14 @@ $app->get('/webhooks/answer', function (Request $request, Response $response) {
     $uri = $request->getUri();
     $url = $uri->getScheme() . '://'.$uri->getHost() . ($uri->getPort() ? ':'.$uri->getPort() : '') . '/webhooks/recording';
 
-    $record = new \Nexmo\Voice\NCCO\Action\Record();
-    $record->setEventWebhook(new \Nexmo\Voice\Webhook($url));
+    $record = new \Vonage\Voice\NCCO\Action\Record();
+    $record->setEventWebhook(new \Vonage\Voice\Webhook($url));
     $record->setChannels(2);
 
-    $connect = new \Nexmo\Voice\NCCO\Action\Connect(new \Nexmo\Voice\Endpoint\Phone(TO_NUMBER));
-    $connect->setFrom(NEXMO_NUMBER);
+    $connect = new \Vonage\Voice\NCCO\Action\Connect(new \Vonage\Voice\Endpoint\Phone(TO_NUMBER));
+    $connect->setFrom(VONAGE_NUMBER);
 
-    $ncco = new \Nexmo\Voice\NCCO\NCCO();
+    $ncco = new \Vonage\Voice\NCCO\NCCO();
     $ncco->addAction($connect);
     $ncco->addAction($record);
 
@@ -34,8 +34,8 @@ $app->get('/webhooks/answer', function (Request $request, Response $response) {
 });
 
 $app->post('/webhooks/recording', function (Request $request, Response $response) {
-    /** @var \Nexmo\Voice\Webhook\Record */
-    $recording = \Nexmo\Voice\Webhook\Factory::createFromRequest($request);
+    /** @var \Vonage\Voice\Webhook\Record */
+    $recording = \Vonage\Voice\Webhook\Factory::createFromRequest($request);
     error_log($recording->getRecordingUrl());
 
     return $response->withStatus(204);

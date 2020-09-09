@@ -22,19 +22,19 @@ $app->get('/webhooks/answer', function (Request $request, Response $response) {
     $uri = $request->getUri();
     $url = $uri->getScheme() . '://'.$uri->getHost() . ($uri->getPort() ? ':'.$uri->getPort() : '') . '/webhooks/recordings';
 
-    $conversation = new \Nexmo\Voice\NCCO\Action\Conversation(CONF_NAME);
+    $conversation = new \Vonage\Voice\NCCO\Action\Conversation(CONF_NAME);
     $conversation->setRecord(true);
-    $conversation->setEventWebhook(new \Nexmo\Voice\Webhook($url));
+    $conversation->setEventWebhook(new \Vonage\Voice\Webhook($url));
 
-    $ncco = new \Nexmo\Voice\NCCO\NCCO();
+    $ncco = new \Vonage\Voice\NCCO\NCCO();
     $ncco->addAction($conversation);
 
     return new JsonResponse($ncco);
 });
 
 $app->post('/webhooks/recordings', function (Request $request, Response $response) {
-    /** @var \Nexmo\Voice\Webhook\Record */
-    $recording = \Nexmo\Voice\Webhook\Factory::createFromRequest($request);
+    /** @var \Vonage\Voice\Webhook\Record */
+    $recording = \Vonage\Voice\Webhook\Factory::createFromRequest($request);
     error_log($recording->getRecordingUrl());
 
     return $response->withStatus(204);

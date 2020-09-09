@@ -7,20 +7,20 @@ require_once __DIR__ . '/../vendor/autoload.php';
 // 1. Make a Phone Call
 // 2. Play Text-to-Speech
 
-$keypair = new \Nexmo\Client\Credentials\Keypair(
-    file_get_contents(NEXMO_APPLICATION_PRIVATE_KEY_PATH),
-    NEXMO_APPLICATION_ID
+$keypair = new \Vonage\Client\Credentials\Keypair(
+    file_get_contents(VONAGE_APPLICATION_PRIVATE_KEY_PATH),
+    VONAGE_APPLICATION_ID
 );
-$client = new \Nexmo\Client($keypair);
+$client = new \Vonage\Client($keypair);
 
-$outboundCall = new \Nexmo\Voice\OutboundCall(
-    new \Nexmo\Voice\Endpoint\Phone(TO_NUMBER),
-    new \Nexmo\Voice\Endpoint\Phone(NEXMO_NUMBER)
+$outboundCall = new \Vonage\Voice\OutboundCall(
+    new \Vonage\Voice\Endpoint\Phone(TO_NUMBER),
+    new \Vonage\Voice\Endpoint\Phone(VONAGE_NUMBER)
 );
 $outboundCall->setAnswerWebhook(
-    new \Nexmo\Voice\Webhook(
+    new \Vonage\Voice\Webhook(
         'https://developer.nexmo.com/ncco/tts.json',
-        \Nexmo\Voice\Webhook::METHOD_GET
+        \Vonage\Voice\Webhook::METHOD_GET
     )
 );
 $response = $client->voice()->createOutboundCall($outboundCall);

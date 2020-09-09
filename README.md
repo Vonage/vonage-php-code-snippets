@@ -1,4 +1,4 @@
-# Nexmo APIs Quickstart Examples for PHP
+# Vonage APIs Quickstart Examples for PHP
 
 <img src="https://developer.nexmo.com/assets/images/Vonage_Nexmo.svg" height="48px" alt="Nexmo is now known as Vonage" />
 
@@ -8,21 +8,21 @@ Quickstarts also available for [Java](https://github.com/nexmo/nexmo-java-code-s
 
 ## Setup
 
-These code samples are meant to be used for [https://developer.nexmo.com/](https://developer.nexmo.com/), and are structured in such a way as to be used for internal testing. Developers are free to use these code snippets as a reference, but these may require changes to be worked into your specific application. We recommend checking out the [Nexmo Developer Website](https://developer.nexmo.com/), which displays these code snippets in a more copy/paste fashion.
+These code samples are meant to be used for [https://developer.nexmo.com/](https://developer.nexmo.com/), and are structured in such a way as to be used for internal testing. Developers are free to use these code snippets as a reference, but these may require changes to be worked into your specific application. We recommend checking out the [Vonage Developer Website](https://developer.nexmo.com/), which displays these code snippets in a more copy/paste fashion.
 
 If you would like to run these examples yourself, you will need to do the following:
 
 1. Run `composer install` in the root of the repository
 2. Copy `.env-example` to `.env`
-3. Edit `.env` with your Nexmo credentials
+3. Edit `.env` with your Vonage credentials
 
 From there, you can fill out the various environment variables as detailed by the individual code snippet. Some snippets may share common environment variables. 
 
 Larger or more complex snippets may include their own `composer.json` file and have additional requirements. Please check any READMEs inside of the larger examples for setup instructions.
 
-## Configure with Your Nexmo API Keys
+## Configure with Your Vonage API Keys
 
-To use this sample you will first need a [Nexmo account](https://dashboard.nexmo.com/sign-up). Once you have your own API credentials, rename
+To use this sample you will first need a [Vonage account](https://dashboard.nexmo.com/sign-up). Once you have your own API credentials, rename
 the `.env-example` file to `.env` and set the values as required.
 
 For some of the examples, you will need to [buy a number](https://dashboard.nexmo.com/buy-numbers).

@@ -12,22 +12,22 @@ $app->get('/webhooks/answer', function (Request $request, Response $response) {
     $uri = $request->getUri();
     $url = $uri->getScheme() . '://'.$uri->getHost() . ($uri->getPort() ? ':'.$uri->getPort() : '') . '/webhooks/recording';
 
-    $record = new \Nexmo\Voice\NCCO\Action\Record();
+    $record = new \Vonage\Voice\NCCO\Action\Record();
     $record
         ->setEndOnSilence(3)
         ->setEndOnKey('#')
         ->setBeepStart(true)
-        ->setEventWebhook(new \Nexmo\Voice\Webhook($url))
+        ->setEventWebhook(new \Vonage\Voice\Webhook($url))
     ;
 
-    $ncco = new \Nexmo\Voice\NCCO\NCCO();
+    $ncco = new \Vonage\Voice\NCCO\NCCO();
     $ncco
         ->addAction(
-            new \Nexmo\Voice\NCCO\Action\Talk('Please leave a message after the tone, then press #. We will get back to you as soon as we can')
+            new \Vonage\Voice\NCCO\Action\Talk('Please leave a message after the tone, then press #. We will get back to you as soon as we can')
         )
         ->addAction($record)
         ->addAction(
-            new \Nexmo\Voice\NCCO\Action\Talk('Thank you for your message. Goodbye')
+            new \Vonage\Voice\NCCO\Action\Talk('Thank you for your message. Goodbye')
         )
     ;
 
@@ -35,8 +35,8 @@ $app->get('/webhooks/answer', function (Request $request, Response $response) {
 });
 
 $app->post('/webhooks/recording', function (Request $request, Response $response) {
-    /** @var \Nexmo\Voice\Webhook\Record */
-    $recording = \Nexmo\Voice\Webhook\Factory::createFromRequest($request);
+    /** @var \Vonage\Voice\Webhook\Record */
+    $recording = \Vonage\Voice\Webhook\Factory::createFromRequest($request);
     error_log($recording->getRecordingUrl());
 
     return $response->withStatus(204);

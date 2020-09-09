@@ -11,8 +11,8 @@ if (!defined('REQUEST_ID')) {
 
 error_log('Cancelling `request_id` ' . REQUEST_ID);
 
-$basic  = new \Nexmo\Client\Credentials\Basic(NEXMO_API_KEY, NEXMO_API_SECRET);
-$client = new \Nexmo\Client(new \Nexmo\Client\Credentials\Container($basic));
+$basic  = new \Vonage\Client\Credentials\Basic(VONAGE_API_KEY, VONAGE_API_SECRET);
+$client = new \Vonage\Client(new \Vonage\Client\Credentials\Container($basic));
 
 try {
     $result = $client->verify()->cancel(REQUEST_ID);

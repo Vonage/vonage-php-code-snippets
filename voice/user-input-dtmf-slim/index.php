@@ -12,16 +12,16 @@ $app->get('/webhooks/answer', function (Request $request, Response $response) {
     $uri = $request->getUri();
     $url = $uri->getScheme() . '://'.$uri->getHost() . ($uri->getPort() ? ':'.$uri->getPort() : '') . '/webhooks/dtmf';
 
-    $input = new \Nexmo\Voice\NCCO\Action\Input();
+    $input = new \Vonage\Voice\NCCO\Action\Input();
     $input
         ->setEnableDtmf(true)
-        ->setEventWebhook(new \Nexmo\Voice\Webhook($url, 'GET'))
+        ->setEventWebhook(new \Vonage\Voice\Webhook($url, 'GET'))
     ;
 
-    $ncco = new \Nexmo\Voice\NCCO\NCCO();
+    $ncco = new \Vonage\Voice\NCCO\NCCO();
     $ncco
         ->addAction(
-            new \Nexmo\Voice\NCCO\Action\Talk('Please enter a digit')
+            new \Vonage\Voice\NCCO\Action\Talk('Please enter a digit')
         )
         ->addAction($input)
     ;
@@ -30,11 +30,11 @@ $app->get('/webhooks/answer', function (Request $request, Response $response) {
 });
 
 $app->map(['GET', 'POST'], '/webhooks/dtmf', function (Request $request, Response $response) {
-    /** @var \Nexmo\Voice\Webhook\Input $input */
-    $input = \Nexmo\Voice\Webhook\Factory::createFromRequest($request);
-    $ncco = new \Nexmo\Voice\NCCO\NCCO();
+    /** @var \Vonage\Voice\Webhook\Input $input */
+    $input = \Vonage\Voice\Webhook\Factory::createFromRequest($request);
+    $ncco = new \Vonage\Voice\NCCO\NCCO();
     $ncco->addAction(
-        new \Nexmo\Voice\NCCO\Action\Talk('You pressed '. $input->getDtmf()['digits'])
+        new \Vonage\Voice\NCCO\Action\Talk('You pressed '. $input->getDtmf()['digits'])
     );
 
     return new JsonResponse($ncco);

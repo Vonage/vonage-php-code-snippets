@@ -27,12 +27,12 @@ $app->get('/webhook/answer', function (Request $request, Response $response) {
 });
 
 $app->get('/makeCall/{number}', function (Request $request, Response $response, array $args) {
-    $keypair = new \Nexmo\Client\Credentials\Keypair(
+    $keypair = new \Vonage\Client\Credentials\Keypair(
         file_get_contents(__DIR__ . '/private.key'),
         'APPLICATION_ID'
     );
 
-    $client = new \Nexmo\Client($keypair);
+    $client = new \Vonage\Client($keypair);
 
     $client->calls()->create([
         'to' => [[

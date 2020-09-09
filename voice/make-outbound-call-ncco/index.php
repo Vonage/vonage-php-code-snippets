@@ -1,22 +1,22 @@
 <?php
 
-use Nexmo\Voice\NCCO\NCCO;
+use Vonage\Voice\NCCO\NCCO;
 
 require_once __DIR__ . '/../../config.php';
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-$keypair = new \Nexmo\Client\Credentials\Keypair(
-    file_get_contents(NEXMO_APPLICATION_PRIVATE_KEY_PATH),
-    NEXMO_APPLICATION_ID
+$keypair = new \Vonage\Client\Credentials\Keypair(
+    file_get_contents(VONAGE_APPLICATION_PRIVATE_KEY_PATH),
+    VONAGE_APPLICATION_ID
 );
-$client = new \Nexmo\Client($keypair);
+$client = new \Vonage\Client($keypair);
 
-$outboundCall = new \Nexmo\Voice\OutboundCall(
-    new \Nexmo\Voice\Endpoint\Phone(TO_NUMBER),
-    new \Nexmo\Voice\Endpoint\Phone(NEXMO_NUMBER)
+$outboundCall = new \Vonage\Voice\OutboundCall(
+    new \Vonage\Voice\Endpoint\Phone(TO_NUMBER),
+    new \Vonage\Voice\Endpoint\Phone(VONAGE_NUMBER)
 );
 $ncco = new NCCO();
-$ncco->addAction(new \Nexmo\Voice\NCCO\Action\Talk('This is a text to speech call from Nexmo'));
+$ncco->addAction(new \Vonage\Voice\NCCO\Action\Talk('This is a text to speech call from Nexmo'));
 $outboundCall->setNCCO($ncco);
 
 $response = $client->voice()->createOutboundCall($outboundCall);
