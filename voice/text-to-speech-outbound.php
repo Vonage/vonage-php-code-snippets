@@ -19,7 +19,7 @@ $outboundCall = new \Vonage\Voice\OutboundCall(
 );
 $outboundCall->setAnswerWebhook(
     new \Vonage\Voice\Webhook(
-        'https://developer.nexmo.com/ncco/tts.json',
+        'https://raw.githubusercontent.com/nexmo-community/ncco-examples/gh-pages/text-to-speech.json',
         \Vonage\Voice\Webhook::METHOD_GET
     )
 );

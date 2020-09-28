@@ -8,5 +8,5 @@ $client = new \Vonage\Client($keypair);
 $call = $client->voice()->get(UUID);
 $client->voice()->transferCall(
     $call->getUuid(),
-    new \Vonage\Voice\NCCO\Action\Transfer("https://developer.nexmo.com/ncco/transfer.json")
+    new \Vonage\Voice\NCCO\Action\Transfer("https://raw.githubusercontent.com/nexmo-community/ncco-examples/gh-pages/transfer.json")
 );
