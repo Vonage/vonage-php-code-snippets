@@ -10,7 +10,7 @@ $client = new \Vonage\Client($basic);
 
 /** @var IterableAPICollection $response */
 $filter = new AvailableNumbers([
-    "pattern" => (int) NUMBER_SEARCH_CRITERIA,
+    "pattern" => (string) NUMBER_SEARCH_CRITERIA,
     "search_pattern" => (int) NUMBER_SEARCH_PATTERN,
     "type" => VONAGE_NUMBER_TYPE,
     "features" => VONAGE_NUMBER_FEATURES,
