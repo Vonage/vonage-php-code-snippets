@@ -7,12 +7,12 @@ $basic  = new \Vonage\Client\Credentials\Basic(VONAGE_API_KEY, VONAGE_API_SECRET
 $client = new \Vonage\Client(new \Vonage\Client\Credentials\Container($basic));
 
 try {
-    $isDeleted = $client->applications()->delete(MESSAGES_APPLICATION_ID);
+    $isDeleted = $client->applications()->delete(VONAGE_APPLICATION_ID);
 
     if ($isDeleted) {
-        echo "Deleted application " . MESSAGES_APPLICATION_ID . PHP_EOL;
+        echo "Deleted application " . VONAGE_APPLICATION_ID . PHP_EOL;
     } else {
-        echo "Could not delete application " . MESSAGES_APPLICATION_ID . PHP_EOL;
+        echo "Could not delete application " . VONAGE_APPLICATION_ID . PHP_EOL;
     }
 } catch (\Vonage\Client\Exception\Request $e) {
     echo "There was a problem with the request: " . $e->getMessage() . PHP_EOL;

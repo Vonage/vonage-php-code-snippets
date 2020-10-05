@@ -7,7 +7,7 @@ $basic  = new \Vonage\Client\Credentials\Basic(VONAGE_API_KEY, VONAGE_API_SECRET
 $client = new \Vonage\Client(new \Vonage\Client\Credentials\Container($basic));
 
 try {
-    $application = $client->applications()->get(MESSAGES_APPLICATION_ID);
+    $application = $client->applications()->get(VONAGE_APPLICATION_ID);
     $application->setName('New Name2');
     $application->getVoiceConfig()->setWebhook(
         Nexmo\Application\VoiceConfig::ANSWER,
