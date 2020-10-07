@@ -1,8 +1,12 @@
 {
     "require": {
-        "slim/slim": "^3.8"
+        "slim/slim": "^3.8",
+        "vonage/client": "^2.3"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.1"
+    },
+    "scripts":{
+        "serve": "php -S 0.0.0.0:3000 index.php"
     }
 }
