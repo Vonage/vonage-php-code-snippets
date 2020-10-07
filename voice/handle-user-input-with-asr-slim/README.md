@@ -10,7 +10,7 @@ To run this demo:
 4. Copy this URL and go to your [customer dashboard](https://dashboard.nexmo.com/sign-in)
 5. Go to ["Your Applications"](https://dashboard.nexmo.com/applications)
 6. Click the three dots for your application and click "Edit"
-7. Under "Capabilities", change the Voice "Answer URL" option to `https://your-ngrok-url//webhooks/asr`
+7. Under "Capabilities", change the Voice "Answer URL" option to `https://[your-ngrok-url]/webhooks/answer`
 7. Click "Save changes"
 
 You can now call one of the numbers linked to your application. You should be able to speak at the prompt, and 
