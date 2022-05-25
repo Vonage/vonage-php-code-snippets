@@ -6,7 +6,7 @@ $inbound = \Vonage\Message\InboundMessage::createFromGlobals();
 
 if($inbound->isValid()){
     $params = $inbound->getRequestData();
-    $signature = new Nexmo\Client\Signature(
+    $signature = new Vonage\Client\Signature(
         $params,
         VONAGE_API_SIGNATURE_SECRET,
         'md5hash'
