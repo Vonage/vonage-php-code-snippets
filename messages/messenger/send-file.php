@@ -13,7 +13,7 @@ $fileObject = new \Vonage\Messages\MessageObjects\FileObject(
     'https://example.com/file.pdf',
 );
 
-$sms = new \Vonage\Messages\MessageType\Messenger\MessengerFile(
+$message = new \Vonage\Messages\MessageType\Messenger\MessengerFile(
     TO_NUMBER,
     FROM_NUMBER,
     $fileObject
