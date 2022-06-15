@@ -14,7 +14,7 @@ $image = new \Vonage\Messages\MessageObjects\ImageObject(
     'A MMS image message, with caption, sent using the Vonage Messages API'
 );
 
-$sms = new \Vonage\Messages\MessageType\MMS\MMSImage(
+$mms = new \Vonage\Messages\MessageType\MMS\MMSImage(
     TO_NUMBER,
     FROM_NUMBER,
     $image
