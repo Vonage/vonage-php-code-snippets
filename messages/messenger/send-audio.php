@@ -14,7 +14,7 @@ $audioObject = new \Vonage\Messages\MessageObjects\AudioObject(
     'This is an audio file'
 );
 
-$sms = new \Vonage\Messages\MessageType\Messenger\MessengerAudio(
+$message = new \Vonage\Messages\MessageType\Messenger\MessengerAudio(
     TO_NUMBER,
     FROM_NUMBER,
     $audioObject
