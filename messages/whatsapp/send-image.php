@@ -14,7 +14,7 @@ $imageObject = new \Vonage\Messages\MessageObjects\ImageObject(
     'This is a whatsapp image'
 );
 
-$sms = new \Vonage\Messages\MessageType\Messenger\MessengerImage(
+$whatsApp = new \Vonage\Messages\MessageType\Messenger\MessengerImage(
     TO_NUMBER,
     FROM_NUMBER,
     $imageObject
