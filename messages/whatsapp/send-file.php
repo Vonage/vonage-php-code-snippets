@@ -14,7 +14,7 @@ $fileObject = new \Vonage\Messages\MessageObjects\FileObject(
     'This is a whatsapp file'
 );
 
-$sms = new \Vonage\Messages\MessageType\WhatsApp\WhatsAppFile(
+$whatsApp = new \Vonage\Messages\MessageType\WhatsApp\WhatsAppFile(
     TO_NUMBER,
     FROM_NUMBER,
     $fileObject
