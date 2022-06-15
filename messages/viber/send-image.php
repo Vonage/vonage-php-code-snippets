@@ -14,7 +14,7 @@ $imageObject = new \Vonage\Messages\MessageObjects\ImageObject(
     'This is an image'
 );
 
-$sms = new \Vonage\Messages\MessageType\Viber\ViberImage(
+$viber = new \Vonage\Messages\MessageType\Viber\ViberImage(
     TO_NUMBER,
     FROM_NUMBER,
     $imageObject
