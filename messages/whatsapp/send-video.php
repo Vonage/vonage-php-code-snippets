@@ -14,7 +14,7 @@ $videoObject = new \Vonage\Messages\MessageObjects\VideoObject(
     'This is an video file'
 );
 
-$sms = new \Vonage\Messages\MessageType\WhatsApp\WhatsAppVideo(
+$whatsApp = new \Vonage\Messages\MessageType\WhatsApp\WhatsAppVideo(
     TO_NUMBER,
     FROM_NUMBER,
     $videoObject
