@@ -14,7 +14,7 @@ $imageObject = new \Vonage\Messages\MessageObjects\ImageObject(
     'This is an image'
 );
 
-$sms = new \Vonage\Messages\MessageType\Messenger\MessengerImage(
+$message = new \Vonage\Messages\MessageType\Messenger\MessengerImage(
     TO_NUMBER,
     FROM_NUMBER,
     $imageObject
