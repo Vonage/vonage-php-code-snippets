@@ -14,7 +14,7 @@ $videoObject = new \Vonage\Messages\MessageObjects\VideoObject(
     'This is an video file'
 );
 
-$sms = new \Vonage\Messages\MessageType\Messenger\MessengerVideo(
+$message = new \Vonage\Messages\MessageType\Messenger\MessengerVideo(
     TO_NUMBER,
     FROM_NUMBER,
     $videoObject
