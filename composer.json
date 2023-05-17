@@ -4,4 +4,8 @@
         "vlucas/phpdotenv": "^2.5",
         "lcobucci/jwt": "^3.0"
     }
+    ,
+    "require-dev": {
+        "roave/security-advisories": "dev-latest"
+    }
 }
