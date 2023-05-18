@@ -7,10 +7,8 @@ $client = new Vonage\Client(
     new Vonage\Client\Credentials\Keypair(VONAGE_APPLICATION_PRIVATE_KEY_PATH, VONAGE_APPLICATION_ID),
 );
 
-$code = '1234';
-
 try {
-    $client->verify2()->check($code);
+    $client->verify2()->check(CODE);
 } catch (\Exception $e) {
     var_dump($e->getMessage());
 }
