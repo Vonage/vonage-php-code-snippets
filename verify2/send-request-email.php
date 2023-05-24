@@ -7,10 +7,5 @@ $client = new Vonage\Client(
     new Vonage\Client\Credentials\Keypair(VONAGE_APPLICATION_PRIVATE_KEY_PATH, VONAGE_APPLICATION_ID),
 );
 
-$code = '1234';
-
-try {
-    $client->verify2()->check($code);
-} catch (\Exception $e) {
-    var_dump($e->getMessage());
-}
+$newRequest = new \Vonage\Verify2\Request\EmailRequest(TO_EMAIL, 'my-verification', FROM_EMAIL);
+$client->verify2()->startVerification($newRequest);
