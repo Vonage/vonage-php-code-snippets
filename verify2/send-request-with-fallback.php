@@ -8,6 +8,6 @@ $client = new Vonage\Client(
 );
 
 $newRequest = new \Vonage\Verify2\Request\SilentAuthRequest(TO_NUMBER, 'my-verification');
-$emailWorkflow = new \Vonage\Verify2\VerifyObjects\VerificationWorkflow(\Vonage\Verify2\VerifyObjects\VerificationWorkflow::WORKFLOW_EMAIL, TO_EMAIL, FROM_EMAIL);
+$emailWorkflow = new \Vonage\Verify2\VerifyObjects\VerificationWorkflow(\Vonage\Verify2\VerifyObjects\VerificationWorkflow::WORKFLOW_EMAIL, TO_EMAIL);
 $newRequest->addWorkflow($emailWorkflow);
 $client->verify2()->startVerification($newRequest);
