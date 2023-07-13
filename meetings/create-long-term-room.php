@@ -9,7 +9,7 @@ $client = new Vonage\Client(
 
 $room = new \Vonage\Meetings\Room();
 $room->fromArray([
-    'display_name' => 'my_test_room',
+    'display_name' => ROOM_DISPLAY_NAME,
     'type' => 'long_term',
     'expires_at' => '2023-01-30T00:47:04+0000'
 ]);

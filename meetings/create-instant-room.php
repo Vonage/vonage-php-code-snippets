@@ -8,5 +8,5 @@ $client = new Vonage\Client(
 );
 
 $room = new \Vonage\Meetings\Room();
-$room->fromArray(['display_name' => 'my_test_room']);
+$room->fromArray(['display_name' => ROOM_DISPLAY_NAME]);
 $meeting = $client->meetings()->createRoom($room);
