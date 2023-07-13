@@ -1,6 +1,6 @@
 {
     "require": {
-        "vonage/client": "^2.3",
+        "vonage/client": "^4.0",
         "vlucas/phpdotenv": "^2.5",
         "lcobucci/jwt": "^4.0"
     }
