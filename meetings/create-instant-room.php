@@ -7,4 +7,6 @@ $client = new Vonage\Client(
     new Vonage\Client\Credentials\Keypair(VONAGE_APPLICATION_PRIVATE_KEY_PATH, VONAGE_APPLICATION_ID),
 );
 
-$meeting = $client->meetings()->createRoom('my_test_room');
+$room = new \Vonage\Meetings\Room();
+$room->fromArray(['display_name' => 'my_test_room']);
+$meeting = $client->meetings()->createRoom($room);
