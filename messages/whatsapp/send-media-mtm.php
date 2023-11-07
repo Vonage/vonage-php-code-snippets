@@ -12,7 +12,6 @@ $client = new \Vonage\Client($keypair);
 $custom = [
     "type" => "template",
     "template" => [
-        "namespace" => WHATSAPP_TEMPLATE_NAMESPACE,
         "name" => WHATSAPP_TEMPLATE_NAME,
         "language" => ["policy" => "deterministic", "code" => "en"],
         "components" => [
@@ -20,12 +19,9 @@ $custom = [
                 "type" => "header",
                 "parameters" => [
                     [
-                        "type" => "location",
-                        "location" => [
-                            "longitude" => -122.425332,
-                            "latitude" => 37.758056,
-                            "name" => "Facebook HQ",
-                            "address" => "1 Hacker Way, Menlo Park, CA 94025",
+                        "type" => "image",
+                        "image" => [
+                            "link" => IMAGE_URL,
                         ],
                     ],
                 ],
@@ -33,9 +29,8 @@ $custom = [
             [
                 "type" => "body",
                 "parameters" => [
-                    "Value 1",
-                    "Value 2",
-                    "Value 3",
+                    "type" => "text",
+                    "text" => WHATSAPP_TEMPLATE_REPLACEMENT_TEXT,
                 ],
             ],
         ],
