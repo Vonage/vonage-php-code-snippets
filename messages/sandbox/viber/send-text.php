@@ -19,3 +19,5 @@ $viber = new \Vonage\Messages\MessageType\Viber\ViberText(
     MESSAGES_SANDBOX_VIBER_SERVICE_ID,
     'This is a Viber text message sent using the Vonage PHP SDK via the Messages Sandbox'
 );
+
+$response = $client->messages()->send($message);
