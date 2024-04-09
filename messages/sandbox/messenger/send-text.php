@@ -19,3 +19,5 @@ $message = new \Vonage\Messages\MessageType\Messenger\MessengerText(
     MESSAGES_SANDBOX_FB_ID,
     'This is a Messenger text message sent using the Vonage PHP SDK via the Messages Sandbox'
 );
+
+$response = $client->messages()->send($message);
