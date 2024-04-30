@@ -14,5 +14,5 @@ $message = new Vonage\SMS\Message\SMS(
 $client->sms()->send($message);
 
 // Incoming Request
-$signature = new Vonage\Client\Signature(VONAGE_API_KEY, VONAGE_SIGNATURE_SECRET, 'sha256');
+$signature = new Vonage\Client\Signature($_GET, VONAGE_SIGNATURE_SECRET, 'sha256');
 $isValid = $signature->check($_GET['sig']);
