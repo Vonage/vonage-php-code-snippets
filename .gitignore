@@ -3,3 +3,14 @@ private.key
 .env
 composer.lock
 .DS_Store
+/.idea/codeception.xml
+/.idea/deployment.xml
+/img.png
+/.idea/material_theme_project_new.xml
+/.idea/modules.xml
+/.idea/php.xml
+/.idea/phpspec.xml
+/.idea/phpunit.xml
+/.idea/symfony2.xml
+/.idea/vcs.xml
+/.idea/vonage-php-code-snippets.iml
