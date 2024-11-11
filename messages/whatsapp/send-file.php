@@ -14,8 +14,10 @@ $fileObject = new \Vonage\Messages\MessageObjects\FileObject(
     'This is a whatsapp file'
 );
 
-$whatsApp = new \Vonage\Messages\MessageType\WhatsApp\WhatsAppFile(
+$whatsApp = new \Vonage\Messages\Channel\WhatsApp\WhatsAppFile(
     TO_NUMBER,
     FROM_NUMBER,
     $fileObject
 );
+
+$client->messages()->send($whatsApp);

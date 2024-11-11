@@ -14,8 +14,10 @@ $videoObject = new \Vonage\Messages\MessageObjects\VideoObject(
     'This is an video file'
 );
 
-$message = new \Vonage\Messages\MessageType\Messenger\MessengerVideo(
+$message = new \Vonage\Messages\Channel\Messenger\MessengerVideo(
     TO_NUMBER,
     FROM_NUMBER,
     $videoObject
 );
+
+$client->messages()->send($message);

@@ -9,15 +9,10 @@ $keypair = new \Vonage\Client\Credentials\Keypair(
 
 $client = new \Vonage\Client($keypair);
 
-$imageObject = new \Vonage\Messages\MessageObjects\ImageObject(
-    'https://example.com/image.jpg',
-    'This is an image'
-);
-
-$viber = new \Vonage\Messages\Channel\Viber\ViberImage(
+$viber = new \Vonage\Messages\Channel\Viber\ViberVideo(
     TO_NUMBER,
     FROM_NUMBER,
-    $imageObject
+    'https://example.com/file.zip'
 );
 
 $client->messages()->send($viber);

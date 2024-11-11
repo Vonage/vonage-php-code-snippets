@@ -14,8 +14,10 @@ $videoObject = new \Vonage\Messages\MessageObjects\VideoObject(
     'This is an video file'
 );
 
-$whatsApp = new \Vonage\Messages\MessageType\WhatsApp\WhatsAppVideo(
+$whatsApp = new \Vonage\Messages\Channel\WhatsApp\WhatsAppVideo(
     TO_NUMBER,
     FROM_NUMBER,
     $videoObject
 );
+
+$client->messages()->send($whatsApp);

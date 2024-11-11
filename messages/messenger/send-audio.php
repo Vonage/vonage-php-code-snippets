@@ -14,8 +14,10 @@ $audioObject = new \Vonage\Messages\MessageObjects\AudioObject(
     'This is an audio file'
 );
 
-$message = new \Vonage\Messages\MessageType\Messenger\MessengerAudio(
+$message = new \Vonage\Messages\Channel\Messenger\MessengerAudio(
     TO_NUMBER,
     FROM_NUMBER,
     $audioObject
 );
+
+$client->messages()->send($message);

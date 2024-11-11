@@ -9,15 +9,21 @@ $keypair = new \Vonage\Client\Credentials\Keypair(
 
 $client = new \Vonage\Client($keypair);
 
-$imageObject = new \Vonage\Messages\MessageObjects\ImageObject(
-    'https://example.com/image.jpg',
-    'This is an image'
-);
+$custom = [
+    "message_type" => "sticker",
+    "sticker" => [
+        "url" => STICKER_URL
+    ],
+    "to" => TO_NUMBER,
+    "from" => WHATSAPP_NUMBER,
+    "channel" => "whatsapp"
+];
 
-$viber = new \Vonage\Messages\Channel\Viber\ViberImage(
+
+$whatsApp = new \Vonage\Messages\Channel\WhatsApp\WhatsAppCustom(
     TO_NUMBER,
     FROM_NUMBER,
-    $imageObject
+    $custom
 );
 
-$client->messages()->send($viber);
+$client->messages()->send($whatsApp);

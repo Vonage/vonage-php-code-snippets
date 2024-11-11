@@ -9,8 +9,10 @@ $keypair = new \Vonage\Client\Credentials\Keypair(
 
 $client = new \Vonage\Client($keypair);
 
-$whatsApp = new \Vonage\Messages\MessageType\WhatsApp\WhatsAppText(
+$whatsApp = new \Vonage\Messages\Channel\WhatsApp\WhatsAppText(
     TO_NUMBER,
     FROM_NUMBER,
     'This is a text message sent using the Vonage PHP SDK'
 );
+
+$client->messages()->send($whatsApp);

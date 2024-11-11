@@ -37,8 +37,10 @@ $custom = [
     ],
 ];
 
-$whatsApp = new \Vonage\Messages\MessageType\WhatsApp\WhatsAppCustom(
+$whatsApp = new \Vonage\Messages\Channel\WhatsApp\WhatsAppCustom(
     TO_NUMBER,
     FROM_NUMBER,
     $custom
 );
+
+$client->messages()->send($whatsApp);

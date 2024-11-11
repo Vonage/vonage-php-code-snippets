@@ -9,15 +9,23 @@ $keypair = new \Vonage\Client\Credentials\Keypair(
 
 $client = new \Vonage\Client($keypair);
 
-$audioObject = new \Vonage\Messages\MessageObjects\AudioObject(
-    'https://example.com/audio.mp3',
-    'This is an audio file'
-);
+$custom = [
+    "message_type" => "reaction",
+    "reaction" => [
+        "action" => "unreact"
+    ],
+    "context" => [
+        "message_uuid" => MESSAGE_UUID
+    ],
+    "to" => TO_NUMBER,
+    "from" => WHATSAPP_NUMBER,
+    "channel" => "whatsapp"
+];
 
-$whatsApp = new \Vonage\Messages\Channel\WhatsApp\WhatsAppAudio(
+$whatsApp = new \Vonage\Messages\Channel\WhatsApp\WhatsAppCustom(
     TO_NUMBER,
     FROM_NUMBER,
-    $audioObject
+    $custom
 );
 
 $client->messages()->send($whatsApp);

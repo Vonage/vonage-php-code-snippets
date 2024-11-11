@@ -14,8 +14,10 @@ $imageObject = new \Vonage\Messages\MessageObjects\ImageObject(
     'This is a whatsapp image'
 );
 
-$whatsApp = new \Vonage\Messages\MessageType\Messenger\MessengerImage(
+$whatsApp = new \Vonage\Messages\Channel\WhatsApp\WhatsAppImage(
     TO_NUMBER,
     FROM_NUMBER,
     $imageObject
 );
+
+$client->messages()->send($whatsApp);

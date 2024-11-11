@@ -8,16 +8,6 @@ $keypair = new \Vonage\Client\Credentials\Keypair(
 );
 
 $client = new \Vonage\Client($keypair);
+$client->messages()->getAPIResource()->setBaseUrl('https://api-eu.nexmo.com/v1');
 
-$imageObject = new \Vonage\Messages\MessageObjects\ImageObject(
-    'https://example.com/image.jpg',
-    'This is an image'
-);
-
-$viber = new \Vonage\Messages\Channel\Viber\ViberImage(
-    TO_NUMBER,
-    FROM_NUMBER,
-    $imageObject
-);
-
-$client->messages()->send($viber);
+$client->messages()->send($whatsApp);

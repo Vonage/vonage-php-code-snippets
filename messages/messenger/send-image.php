@@ -14,8 +14,10 @@ $imageObject = new \Vonage\Messages\MessageObjects\ImageObject(
     'This is an image'
 );
 
-$message = new \Vonage\Messages\MessageType\Messenger\MessengerImage(
+$message = new \Vonage\Messages\Channel\Messenger\MessengerImage(
     TO_NUMBER,
     FROM_NUMBER,
     $imageObject
 );
+
+$client->messages()->send($message);
