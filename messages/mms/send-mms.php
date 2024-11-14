@@ -19,3 +19,5 @@ $mms = new \Vonage\Messages\Channel\MMS\MMSImage(
     FROM_NUMBER,
     $image
 );
+
+$client->messages()->send($mms);
