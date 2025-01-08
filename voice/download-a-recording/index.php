@@ -7,4 +7,4 @@ $client = new \Vonage\Client($keypair);
 
 $recordingUrl = 'https://api.nexmo.com/v1/files/'.VONAGE_RECORDING_ID;
 $data = $client->voice()->getRecording($recordingUrl);
-file_put_contents(VONAGE_RECORDING_ID .'.mp3', $data->getBody());
+file_put_contents(VONAGE_RECORDING_ID .'.mp3', $data->getContents());
