@@ -10,11 +10,11 @@ $helpText = <<<ENDHELP
 Sends a verification request and allows setting a Workflow ID
 
 Usage:
-    php request_with_workflow.php -n <NUMBER> [-b <BRAND_NAME>] [-w <WORKFLOW_ID>]
+    php request_with_workflow.php -n <VERIFY_NUMBER> [-b <VERIFY_BRAND_NAME>] [-w <VERIFY_WORKFLOW_ID>]
 
-    NUMBER the telephone number to send the Verify request to
-    BRAND_NAME is the name of the company sending the request. Defaults to 'Acme, Inc.'
-    WORKFLOW_ID is the workflow ID to use. Must be between 1-5
+    VERIFY_NUMBER the telephone number to send the Verify request to
+    VERIFY_BRAND_NAME is the name of the company sending the request. Defaults to 'Acme, Inc.'
+    VERIFY_WORKFLOW_ID is the workflow ID to use. Must be between 1-5
 
     Options can also be passed as environment variables.
 
@@ -25,20 +25,20 @@ if (array_key_exists('h', $options)) {
     exit(1);
 }
 
-if (!defined('NUMBER')) {
-    define('NUMBER', (array_key_exists('n', $options)) ? $options['n'] : null);
+if (!defined('VERIFY_NUMBER')) {
+    define('VERIFY_NUMBER', (array_key_exists('n', $options)) ? $options['n'] : null);
 }
 
-if (!defined('BRAND_NAME')) {
-    define('BRAND_NAME', (array_key_exists('b', $options)) ? $options['b'] : 'Acme, Inc');
+if (!defined('VERIFY_BRAND_NAME')) {
+    define('VERIFY_BRAND_NAME', (array_key_exists('b', $options)) ? $options['b'] : 'Acme, Inc');
 }
 
-if (!defined('WORKFLOW_ID')) {
-    define('WORKFLOW_ID', (array_key_exists('w', $options)) ? $options['w'] : 4);
+if (!defined('VERIFY_WORKFLOW_ID')) {
+    define('VERIFY_WORKFLOW_ID', (array_key_exists('w', $options)) ? $options['w'] : 4);
 }
 
-if (is_null(NUMBER)) {
-    echo "Please supply a NUMBER to send a verification request to."
+if (is_null(VERIFY_NUMBER)) {
+    echo "Please supply a VERIFY_NUMBER to send a verification request to."
         . PHP_EOL
         . PHP_EOL
         . $helpText
@@ -46,7 +46,7 @@ if (is_null(NUMBER)) {
     exit(1);
 }
 
-$request = new \Vonage\Verify\Request(NUMBER, BRAND_NAME, (int) WORKFLOW_ID);
+$request = new \Vonage\Verify\Request(VERIFY_NUMBER, VERIFY_BRAND_NAME, (int) VERIFY_WORKFLOW_ID);
 $response = $client->verify()->start($request);
 
 echo "Started verification, `request_id` is " . $response->getRequestId();

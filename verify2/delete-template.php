@@ -7,4 +7,4 @@ $client = new Vonage\Client(
     new Vonage\Client\Credentials\Keypair(VONAGE_APPLICATION_PRIVATE_KEY_PATH, VONAGE_APPLICATION_ID),
 );
 
-$client->verify2()->deleteCustomTemplate(TEMPLATE_ID);
+$client->verify2()->deleteCustomTemplate(VERIFY_TEMPLATE_ID);

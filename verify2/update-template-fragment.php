@@ -8,7 +8,7 @@ $client = new Vonage\Client(
 );
 
 $client->verify2()->updateCustomTemplateFragment(
-    TEMPLATE_ID,
-    TEMPLATE_FRAGMENT_ID,
+    VERIFY_TEMPLATE_ID,
+    VERIFY_TEMPLATE_FRAGMENT_ID,
     'The authentication code for your ${brand} is: ${code}'
 );

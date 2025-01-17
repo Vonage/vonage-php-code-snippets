@@ -9,4 +9,4 @@ $client = new Vonage\Client(
 
 $updateRequest = new UpdateCustomTemplateRequest('my-renamed-template', true);
 
-$client->verify2()->updateCustomTemplate(TEMPLATE_ID, $updateRequest);
+$client->verify2()->updateCustomTemplate(VERIFY_TEMPLATE_ID, $updateRequest);
