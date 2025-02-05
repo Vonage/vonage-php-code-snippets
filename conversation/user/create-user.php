@@ -10,4 +10,12 @@ $keypair = new \Vonage\Client\Credentials\Keypair(
 
 $client = new \Vonage\Client($keypair);
 
-$client->conversation()->listUserConversationsByUserId(USER_ID);
+$userData = [
+    'name' => USER_NAME,
+    'displayName' => USER_DISPLAY_NAME
+];
+
+$user = new \Vonage\Users\User();
+$user->fromArray($userData);
+
+$client->users()->createUser($user);

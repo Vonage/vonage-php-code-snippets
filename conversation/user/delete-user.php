@@ -10,4 +10,4 @@ $keypair = new \Vonage\Client\Credentials\Keypair(
 
 $client = new \Vonage\Client($keypair);
 
-$client->conversation()->listUserConversationsByUserId(USER_ID);
+$client->users()->deleteUser(USER_ID);

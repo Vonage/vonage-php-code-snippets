@@ -10,4 +10,8 @@ $keypair = new \Vonage\Client\Credentials\Keypair(
 
 $client = new \Vonage\Client($keypair);
 
-$client->conversation()->listUserConversationsByUserId(USER_ID);
+$user = $client->users()->getUser(USER_ID);
+$user->setDisplayName(USER_NEW_DISPLAY_NAME);
+$user->setName(USER_NEW_NAME);
+
+$client->users()->updateUser($user);
