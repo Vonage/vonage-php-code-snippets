@@ -13,4 +13,4 @@ $createFragmentRequest = new CreateCustomTemplateFragmentRequest(
     'The authentication code for your ${brand} is: ${code}'
 );
 
-$client->verify2()->createCustomTemplateFragment(TEMPLATE_ID, $createFragmentRequest);
+$client->verify2()->createCustomTemplateFragment(VERIFY_TEMPLATE_ID, $createFragmentRequest);
