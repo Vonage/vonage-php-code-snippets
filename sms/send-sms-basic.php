@@ -3,8 +3,8 @@
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$container  = new \Vonage\Client\Credentials\Container(VONAGE_APPLICATION_ID, VONAGE_PRIVATE_KEY);
-$client = new \Vonage\Client($container);
+$basic  = new \Vonage\Client\Credentials\Basic(VONAGE_API_KEY, VONAGE_API_SECRET);
+$client = new \Vonage\Client($basic);
 
 $response = $client->sms()->send(
     new \Vonage\SMS\Message\SMS(TO_NUMBER, BRAND_NAME, 'A text message sent using the Vonage SMS API')
