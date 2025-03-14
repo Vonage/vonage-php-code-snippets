@@ -9,15 +9,14 @@ $keypair = new \Vonage\Client\Credentials\Keypair(
 
 $client = new \Vonage\Client($keypair);
 
-$image = new \Vonage\Messages\MessageObjects\ImageObject(
-    MESSAGES_IMAGE_URL,
-    'A MMS image message, with caption, sent using the Vonage Messages API'
+$audio = new \Vonage\Messages\MessageObjects\AudioObject(
+    MESSAGES_AUDIO_URL,
 );
 
-$mms = new \Vonage\Messages\Channel\MMS\MMSImage(
+$mms = new \Vonage\Messages\Channel\MMS\MMSAudio(
     TO_NUMBER,
     FROM_NUMBER,
-    $image
+    $audio
 );
 
 $client->messages()->send($mms);
