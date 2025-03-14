@@ -8,7 +8,7 @@ $client = new Vonage\Client(
 );
 
 try {
-    $client->verify2()->check(REQUEST_ID, CODE);
+    $client->verify2()->check(VERIFY_REQUEST_ID, CODE);
 } catch (\Exception $e) {
     var_dump($e->getMessage());
 }
