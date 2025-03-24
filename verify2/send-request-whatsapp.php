@@ -7,5 +7,5 @@ $client = new Vonage\Client(
     new Vonage\Client\Credentials\Keypair(VONAGE_APPLICATION_PRIVATE_KEY_PATH, VONAGE_APPLICATION_ID),
 );
 
-$newRequest = new \Vonage\Verify2\Request\WhatsAppRequest(TO_NUMBER, 'my-verification');
+$newRequest = new \Vonage\Verify2\Request\WhatsAppRequest(VERIFY_NUMBER, VERIFY_BRAND_NAME);
 $client->verify2()->startVerification($newRequest);

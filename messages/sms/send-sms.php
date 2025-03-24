@@ -9,7 +9,7 @@ $keypair = new \Vonage\Client\Credentials\Keypair(
 
 $client = new \Vonage\Client($keypair);
 
-$sms = new \Vonage\Messages\MessageType\SMS\SMSText(
+$sms = new \Vonage\Messages\Channel\SMS\SMSText(
     TO_NUMBER,
     FROM_NUMBER,
     'This is an SMS sent using the Vonage PHP SDK'

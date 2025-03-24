@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -29,8 +29,8 @@ if (!defined('NUMBER')) {
     define('NUMBER', (array_key_exists('n', $options)) ? $options['n'] : null);
 }
 
-if (!defined('BRAND_NAME')) {
-    define('BRAND_NAME', (array_key_exists('b', $options)) ? $options['b'] : 'Acme, Inc');
+if (!defined('VERIFY_BRAND_NAME')) {
+    define('VERIFY_BRAND_NAME', (array_key_exists('b', $options)) ? $options['b'] : 'Acme, Inc');
 }
 
 if (!defined('WORKFLOW_ID')) {
