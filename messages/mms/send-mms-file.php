@@ -10,7 +10,7 @@ $keypair = new \Vonage\Client\Credentials\Keypair(
 $client = new \Vonage\Client($keypair);
 
 $file = new \Vonage\Messages\MessageObjects\FileObject(
-    MESSAGES_IMAGE_URL,
+    MESSAGES_FILE_URL,
 );
 
 $mms = new \Vonage\Messages\Channel\MMS\MMSFile(
