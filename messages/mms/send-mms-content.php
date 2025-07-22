@@ -9,14 +9,20 @@ $keypair = new \Vonage\Client\Credentials\Keypair(
 
 $client = new \Vonage\Client($keypair);
 
-$content = new \Vonage\Messages\MessageObjects\ContentObject(
-    MESSAGES_IMAGE_URL,
-);
+$imageContent = new \Vonage\Messages\MessageObjects\ContentObject([
+  'type' = 'image',
+  'url' =  MESSAGES_IMAGE_URL,
+]);
+
+$fileContent = new \Vonage\Messages\MessageObjects\ContentObject([
+  'type' = 'file',
+  'url' =  MESSAGES_FILE_URL,
+]);
 
 $mms = new \Vonage\Messages\Channel\MMS\MMSContent(
     MESSAGES_TO_NUMBER,
     MMS_SENDER_ID,
-    $content
+   [ $imageContent, $fileContent],
 );
 
 $client->messages()->send($mms);
