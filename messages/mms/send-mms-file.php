@@ -14,8 +14,8 @@ $file = new \Vonage\Messages\MessageObjects\FileObject(
 );
 
 $mms = new \Vonage\Messages\Channel\MMS\MMSFile(
-    TO_NUMBER,
-    FROM_NUMBER,
+    MESSAGES_TO_NUMBER,
+    MMS_SENDER_ID,
     $file
 );
 

@@ -14,8 +14,8 @@ $content = new \Vonage\Messages\MessageObjects\ContentObject(
 );
 
 $mms = new \Vonage\Messages\Channel\MMS\MMSContent(
-    TO_NUMBER,
-    FROM_NUMBER,
+    MESSAGES_TO_NUMBER,
+    MMS_SENDER_ID,
     $content
 );
 

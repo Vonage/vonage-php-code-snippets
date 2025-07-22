@@ -10,8 +10,8 @@ $keypair = new \Vonage\Client\Credentials\Keypair(
 $client = new \Vonage\Client($keypair);
 
 $mms = new \Vonage\Messages\Channel\MMS\MMSText(
-    TO_NUMBER,
-    FROM_NUMBER,
+    MESSAGES_TO_NUMBER,
+    MMS_SENDER_ID,
     'A text message sent using the Vonage SMS API'
 );
 
