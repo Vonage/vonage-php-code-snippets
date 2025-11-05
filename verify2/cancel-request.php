@@ -8,5 +8,6 @@ $client = new Vonage\Client(
 );
 
 $newRequest = new \Vonage\Verify2\Request\SMSRequest(VERIFY_NUMBER, VERIFY_BRAND_NAME);
+$result = $client->verify2()->startVerification($newRequest);
 
-$client->verify2()->cancelRequest(REQUEST_ID);
+$client->verify2()->cancelRequest($result['request_id']);
