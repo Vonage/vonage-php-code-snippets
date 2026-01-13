@@ -8,6 +8,9 @@ $client = new Vonage\Client(
 );
 
 $newRequest = new \Vonage\Verify2\Request\SilentAuthRequest(VERIFY_NUMBER, VERIFY_BRAND_NAME);
-$emailWorkflow = new \Vonage\Verify2\VerifyObjects\VerificationWorkflow(\Vonage\Verify2\VerifyObjects\VerificationWorkflow::WORKFLOW_EMAIL, TO_EMAIL);
-$newRequest->addWorkflow($emailWorkflow);
+$smsWorkflow = new \Vonage\Verify2\VerifyObjects\VerificationWorkflow(\Vonage\Verify2\VerifyObjects\VerificationWorkflow::WORKFLOW_SMS, VERIFY_NUMBER);
+$newRequest->addWorkflow($smsWorkflow);
+$voiceWorkflow = new \Vonage\Verify2\VerifyObjects\VerificationWorkflow(\Vonage\Verify2\VerifyObjects\VerificationWorkflow::WORKFLOW_VOICE, VERIFY_NUMBER);
+$newRequest->addWorkflow($voiceWorkflow);
+
 $client->verify2()->startVerification($newRequest);
