@@ -20,4 +20,4 @@ $whatsApp = new \Vonage\Messages\MessageType\WhatsApp\WhatsAppText(
     'This is a WhatsApp text message sent using the Vonage PHP SDK via the Messages Sandbox via the Messages Sandbox'
 );
 
-$response = $client->messages()->send($message);
+$response = $client->messages()->send($whatsApp);
